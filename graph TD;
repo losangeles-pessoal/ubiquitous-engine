@@ -1,0 +1,17 @@
+graph TD;
+    Inicio --> Etapa1;
+        Etapa1 --> CadastroFranquia;
+            CadastroFranquia --> |Cadastro com sucesso?| SucessoFranquia;
+                CadastroFranquia --> |Cadastro com sucesso?| ErroCadastro;
+                    SucessoFranquia --> LiberaAcesso;
+                        ErroCadastro --> CadastroFranquia;
+                            LiberaAcesso --> DisponibilizaExercicios;
+                                DisponibilizaExercicios --> |Curso completo?| CursoCompleto;
+                                    CursoCompleto --> |Sim| CursoMatriz;
+                                        CursoCompleto --> |Não| AjustesComplementos;
+                                            AjustesComplementos --> DisponibilizaExercicios;
+                                                CursoMatriz --> LiberaCurso;
+                                                    LiberaCurso --> LiberaTodasFranquias;
+                                                        LiberaTodasFranquias --> FimEtapa1;
+                                                            FimEtapa1 --> Fim;
+                                                            
